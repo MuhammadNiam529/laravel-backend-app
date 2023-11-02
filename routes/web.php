@@ -13,36 +13,34 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
- // return view('welcome');
  return view('pages.blank-page', ['type_menu' => '']);
 });
 
+Route::middleware(['auth'])->group (function (){
+    route::get('home', function() {
+        return view('pages.blank-page', ['type_menu' => '']);
+    })->name('home');
+});
 
-Route::get('/login', function () {
-    // return view('welcome');
-    return view('auth.login',);
-   });
+// Route::get('/login', function () {
+//     return view('auth.login',);
+//    });
 
-   
-Route::get('/register', function () {
-    // return view('welcome');
-    return view('auth.register',);
-   });
+// Route::get('/register', function () {
+//     return view('auth.register',);
+//    });
 
-   
-Route::get('/forgot', function () {
-    // return view('welcome');
-    return view('auth.forgot',);
-   });
 
-   
-Route::get('/reset', function () {
-    // return view('welcome');
-    return view('auth.reset',);
-   });
+// Route::get('/forgot', function () {
+//     return view('auth.forgot',);
+//    });
 
-   
-Route::get('/verify', function () {
-    // return view('welcome');
-    return view('auth.verify',);
-   });
+
+// Route::get('/reset', function () {
+//     return view('auth.reset',);
+//    });
+
+
+// Route::get('/verify', function () {
+//     return view('auth.verify',);
+//    });
